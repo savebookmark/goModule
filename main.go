@@ -9,16 +9,20 @@ import (
 	"github.com/hajimehoshi/ebiten/ebitenutil"
 )
 
+// Game ..
 type Game struct{}
 
+// Update ..
 func (g *Game) Update(screen *ebiten.Image) error {
 	return nil
 }
 
+// Draw ..
 func (g *Game) Draw(screen *ebiten.Image) {
 	ebitenutil.DebugPrint(screen, "Hello, World!")
 }
 
+// Layout ..
 func (g *Game) Layout(outsideWidth, outsideHeight int) (screenWidth, screenHeight int) {
 	return 320, 240
 }
