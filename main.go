@@ -2,111 +2,53 @@ package main
 
 import (
 	"fmt"
-	"log"
-	"net/http"
+	"strconv"
 
-	"github.com/francoispqt/gojay"
-	"github.com/hajimehoshi/ebiten"
-	"github.com/hajimehoshi/ebiten/ebitenutil"
-	"github.com/labstack/echo/v4"
+	"github.com/savebookmark/testebiten/util"
 )
 
-type user struct {
-	id    int
-	name  string
-	email string
+//인터페이스 구현할 스트럭처
+type StructA struct {
 }
 
-// implement gojay.UnmarshalerJSONObject
-func (u *user) UnmarshalJSONObject(dec *gojay.Decoder, key string) error {
-	switch key {
-	case "id":
-		return dec.Int(&u.id)
-	case "name":
-		return dec.String(&u.name)
-	case "email":
-		return dec.String(&u.email)
-	}
-	return nil
+//포인터 리시버
+// func (sa *StructA) AAA(a int) int {
+// 	return a
+// }
+// func (sa *StructA) BBB(a int) string {
+// 	return "a=" + strconv.Itoa(a)
+// }
+//값 리시버
+func (sa StructA) AAA(a int) int {
+	return a
 }
-func (u *user) NKeys() int {
-	return 3
-}
-
-// Game ..
-type Game struct{}
-
-// Update ..
-func (g *Game) Update(screen *ebiten.Image) error {
-	return nil
-}
-
-// Draw ..
-func (g *Game) Draw(screen *ebiten.Image) {
-	ebitenutil.DebugPrint(screen, "Hello, World!")
-}
-
-// Layout ..
-func (g *Game) Layout(outsideWidth, outsideHeight int) (screenWidth, screenHeight int) {
-	return 320, 240
+func (sa StructA) BBB(a int) string {
+	return "a=" + strconv.Itoa(a)
 }
 
 func main() {
-	// Echo instance
-	// e := echo.New()
+	st := util.Student{Name: "HIHI", Age: 10}
+	//소는 누가 키우나 누가할거냐지 추제와 동사 목적어 c.Newname("haha") c라는 객체가 이름을 바꾼다 haah로
+	//go 에서는 파라미터는 무조건 카피된다 그러나 주소가 카피되는냐 값이 카피되느냐의 차이일뿐
+	// var c *util.Student = &util.Student{Name: "hahaha", Age: 20}
+	var c util.Student = util.Student{Name: "hahaha", Age: 20}
 
-	// Middleware
-	// e.Use(middleware.Logger())
-	// e.Use(middleware.Recover())
+	// d := c
 
-	// Routes
-	// e.GET("/", hello)
-	// Start server
-	// e.Logger.Fatal(e.Start(":1323"))
+	fmt.Println(c)
+
+	c.Newname("hohohoh")
+	// d.Newname("dha")
+
+	fmt.Println(c)
+	// fmt.Println(d)
+
+	fmt.Println(st)
 	/////////////////////////////////////////////
-	//gods
-	// list := arraylist.New()
-	// list.Add("list")
-	//workiva
-	// set := set.New()
-	// set.Add("set")
-	////////////////////////////////////////////////////
-	// ebiten.SetWindowSize(640, 480)
-	// ebiten.SetWindowTitle("Hello, World!")
-	// if err := ebiten.RunGame(&Game{}); err != nil {
-	// 	log.Fatal(err)
-	// }
-	///////////////////////////////////////////
-	// sbf := boom.NewDefaultStableBloomFilter(10000, 0.01)
-	// fmt.Println("stable point", sbf.StablePoint())
+	//인터페이스 테스트 포인터와 값
+	// var i util.InterfaceA = &StructA{}
+	var i util.InterfaceA = StructA{}
 
-	// sbf.Add([]byte(`a`))
-	// if sbf.Test([]byte(`a`)) {
-	// 	fmt.Println("contains a")
-	// }
-
-	// if !sbf.TestAndAdd([]byte(`b`)) {
-	// 	fmt.Println("doesn't contain b")
-	// }
-
-	// if sbf.Test([]byte(`b`)) {
-	// 	fmt.Println("now it contains b!")
-	// }
-
-	// Restore to initial state.
-	// sbf.Reset()
-	////////////////////////////////////////////////
-	u := &user{}
-	d := []byte(`{"id":1,"name":"gojay","email":"gojay@email.com"}`)
-	err := gojay.UnmarshalJSONObject(d, u)
-
-	if err != nil {
-		log.Fatal(err)
-	}
-	fmt.Println(u)
-}
-
-// Handler
-func hello(c echo.Context) error {
-	return c.String(http.StatusOK, "Hello, World!")
+	fmt.Println(i.AAA(2))
+	fmt.Println(i.BBB(3))
 }
