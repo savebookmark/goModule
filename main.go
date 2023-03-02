@@ -4,21 +4,24 @@ import (
 	"fmt"
 	"strconv"
 
-	"github.com/savebookmark/testebiten/util"
+	"test/example/util"
 )
 
-//인터페이스 구현할 스트럭처
+// 인터페이스 구현할 스트럭처
 type StructA struct {
 }
 
-//포인터 리시버
-// func (sa *StructA) AAA(a int) int {
-// 	return a
-// }
-// func (sa *StructA) BBB(a int) string {
-// 	return "a=" + strconv.Itoa(a)
-// }
-//값 리시버
+// 포인터 리시버
+//
+//	func (sa *StructA) AAA(a int) int {
+//		return a
+//	}
+//
+//	func (sa *StructA) BBB(a int) string {
+//		return "a=" + strconv.Itoa(a)
+//	}
+//
+// 값 리시버
 func (sa StructA) AAA(a int) int {
 	return a
 }
@@ -37,6 +40,10 @@ func (p *Person) Talk() {
 type Android struct {
 	Person
 	Model string
+}
+
+func one(xPtr *int) {
+	*xPtr = 1
 }
 
 func main() {
@@ -69,9 +76,4 @@ func main() {
 	// a.Person.Talk()
 	a := new(Android)
 	a.Talk()
-
-}
-
-func one(xPtr *int) {
-	*xPtr = 1
 }
