@@ -1,4 +1,5 @@
-package main
+// package main
+package echotest
 
 import (
 	"net/http"
@@ -7,7 +8,7 @@ import (
 	"github.com/labstack/echo/v4/middleware"
 )
 
-func main() {
+func main2() {
 	// Echo instance
 	e := echo.New()
 

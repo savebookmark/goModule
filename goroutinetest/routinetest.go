@@ -1,4 +1,5 @@
-package main
+// package main
+package goroutinetest
 
 import (
 	"fmt"
@@ -11,7 +12,7 @@ func f(from string) {
 	}
 }
 
-func main() {
+func main2() {
 	f("direct")
 	go f("goroutine")
 	go func(msg string) {

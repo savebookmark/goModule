@@ -1,11 +1,12 @@
-package main
+// package main
+package selectselect
 
 import (
 	"fmt"
 	"time"
 )
 
-func main() {
+func main2() {
 	c1 := make(chan string)
 	c2 := make(chan string)
 

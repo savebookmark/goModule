@@ -1,4 +1,5 @@
-package main
+// package main
+package chamselect
 
 import (
 	"fmt"
@@ -58,7 +59,7 @@ func StartPlaneWork(chan1 chan Plane) {
 	}
 }
 
-func main() {
+func main2() {
 	carChan1 := make(chan Car)
 	carChan2 := make(chan Car)
 	carChan3 := make(chan Car)

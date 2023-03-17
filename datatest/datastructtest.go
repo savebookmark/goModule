@@ -1,4 +1,5 @@
-package main
+// package main
+package datatest
 
 import (
 	"fmt"
@@ -32,7 +33,7 @@ func (u *user) NKeys() int {
 	return 3
 }
 
-func main() {
+func main2() {
 	// gods
 	list := arraylist.New()
 	list.Add("list", "list2", "list3", "list4")

@@ -1,4 +1,5 @@
-package main
+// package main
+package httpserver
 
 import (
 	"fmt"
@@ -25,7 +26,7 @@ func hello(res http.ResponseWriter, req *http.Request) {
 	)
 }
 
-func main() {
+func main2() {
 	http.HandleFunc("/hello", hello)
 	err := http.ListenAndServe(":9000", nil)
 	if err != nil {

@@ -1,4 +1,5 @@
-package main
+// package main
+package chanchan
 
 import (
 	"fmt"
@@ -6,7 +7,7 @@ import (
 	"time"
 )
 
-func main() {
+func main2() {
 	///////////////////////////////////////////////
 	// for i := 0; i < 10; i++ {
 	// 	go f(i)
@@ -23,13 +24,14 @@ func main() {
 	fmt.Scanln(&input)
 }
 
-// func f(n int) {
-// 	for i := 0; i < 10; i++ {
-// 		fmt.Println(n, ":", i)
-// 		amt := time.Duration(rand.Intn(250))
-// 		time.Sleep(time.Millisecond * amt)
-// 	}
-// }
+//	func f(n int) {
+//		for i := 0; i < 10; i++ {
+//			fmt.Println(n, ":", i)
+//			amt := time.Duration(rand.Intn(250))
+//			time.Sleep(time.Millisecond * amt)
+//		}
+//	}
+//
 // func pinger(c chan<- string)  //넣는거만 가능
 func pinger(c chan string) {
 	for i := 0; ; i++ {
