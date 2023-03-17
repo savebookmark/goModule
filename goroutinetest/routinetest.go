@@ -12,7 +12,7 @@ func f(from string) {
 	}
 }
 
-func main2() {
+func RoutineMain() {
 	f("direct")
 	go f("goroutine")
 	go func(msg string) {

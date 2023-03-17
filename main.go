@@ -4,6 +4,8 @@ import (
 	"fmt"
 	"strconv"
 
+	// "test/example/selectselect"
+	"test/example/goroutinetest"
 	"test/example/util"
 )
 
@@ -48,7 +50,6 @@ func one(xPtr *int) {
 
 func main() {
 	st := util.Student{Name: "st-name", Age: 10}
-	//소는 누가 키우나 누가할거냐지 추제와 동사 목적어 c.Newname("haha") c라는 객체가 이름을 바꾼다 haah로
 	//go 에서는 파라미터는 무조건 카피된다 그러나 주소가 카피되는냐 값이 카피되느냐의 차이일뿐
 	// var c *util.Student = &util.Student{Name: "hahaha", Age: 20}
 	var c util.Student = util.Student{Name: "c-name", Age: 20}
@@ -74,6 +75,13 @@ func main() {
 	// 안드로이드는 사람이며, 따라서 안드로이드는 이야기할 수 있다.
 	// a := new(Android)
 	// a.Person.Talk()
+
 	a := new(Android)
+	a.Person.Name = "person"
 	a.Talk()
+	etcRun()
+}
+func etcRun() {
+	// selectselect.SelectMain()
+	goroutinetest.RoutineMain()
 }
